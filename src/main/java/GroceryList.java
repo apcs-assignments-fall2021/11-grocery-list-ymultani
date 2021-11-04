@@ -5,19 +5,33 @@ public class GroceryList {
     // Remember to create the array!
     // You don't need to change any of the values in the array
     public GroceryList() {
-        // YOUR CODE HERE
+        arr = new String[10];
     }
 
     // Adds an item to the grocery list
     public void add(String item) {
-        // YOUR CODE HERE
+        for (int i = 0; i < arr.length; i++){
+            if(arr[i] == null){
+                arr[i] = item;
+            }
+        }
+
     }
 
     // Removes an item from the grocery list
     // Replaces the item with null
     // Remember to shift anything to the left if necessary
     public void remove(String item) {
-        // YOUR CODE HERE
+        int x = 0;
+        for(int i = 0; i<arr.length; i++){
+            while(arr[i].equals(item)){
+                arr[i] = arr[i+1];
+            }
+            x = i;
+
+        }
+        arr[x+1] = null;
+
     }
 
     // Returns a String representation the grocery list
@@ -29,7 +43,6 @@ public class GroceryList {
     // You **may** have an extra comma at the end
     @Override
     public String toString() {
-        // YOUR CODE HERE
-        return "";
+        return ("Grocery list: " + arr);
     }
 }
