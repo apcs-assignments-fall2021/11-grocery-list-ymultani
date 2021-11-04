@@ -13,6 +13,7 @@ public class GroceryList {
         for (int i = 0; i < arr.length; i++){
             if(arr[i] == null){
                 arr[i] = item;
+                break;
             }
         }
 
@@ -23,14 +24,14 @@ public class GroceryList {
     // Remember to shift anything to the left if necessary
     public void remove(String item) {
         int x = 0;
-        for(int i = 0; i<arr.length; i++){
-            while(arr[i].equals(item)){
-                arr[i] = arr[i+1];
+        for(int i = 0; i<arr.length -1 ; i++){
+            while(arr[i] == item){
+                arr[i] = null;
+                x = i;
             }
-            x = i;
 
         }
-        arr[x+1] = null;
+
 
     }
 
@@ -43,6 +44,15 @@ public class GroceryList {
     // You **may** have an extra comma at the end
     @Override
     public String toString() {
-        return ("Grocery list: " + arr);
+        String x = "";
+        for(int i = 0; i <arr.length; i++){
+            if(arr[i] != null){
+                x+= arr[i]+", ";
+
+            }
+        }
+        return "Grocery List: " + x;
+
+
     }
 }
